@@ -1,18 +1,19 @@
 {
-  "name": "yelp-camp-code-along",
-  "version": "0.0.1",
-  "description": "code along test",
+  "name": "yelp-camp-djreillo",
+  "version": "1.0.0",
+  "description": "my first web app project",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "none yet"
+    "url": "https://github.com/djreillo/yelpcamp-web-project"
   },
   "keywords": [
-    "test"
+    "webApp",
+    "first"
   ],
   "author": "daryll reillo",
   "license": "ISC",
