@@ -27,7 +27,7 @@ import MongoStore from 'connect-mongo';
 const app = express();
 const __filepath = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filepath);
-const port = 1027;
+const port = process.env.PORT;
 const mongoStore = MongoStore.create({
   mongoUrl: process.env.DB_URL,
   secret: process.env.SESSION_SECRET,
