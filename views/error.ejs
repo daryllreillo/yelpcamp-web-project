@@ -1,0 +1,39 @@
+<% layout('common-layouts/boilerplate.ejs') %>
+<form class="text-center">
+  <button class="btn btn-primary mx-1 my-3"> <a href="/" class="text-light">Back to Home Page</a><br /> </button>
+</form>
+<!-- <% let message = 'If you are not familiar with the below error, you can send an email with a screenshot to our system administrator.'%> -->
+
+<div class="d-flex flex-column justify-content-start">
+  <% if(error !== null) { %>
+  <div class="card bg-info-opacity-seventy px-5 mx-5 py-5">
+    <!-- for 404 page not found page -->
+    <% if (error.status === 404) { %>
+    <h2 class="fs-1 text-center"> <%= error.message %> <br /></h2>
+    <h1 class="fs-3 text-center"> <%= error.name %> </h1>
+    <% } else { %>
+    <h1 class="fs-1"> <%= error.name %> </h1>
+    <% if (process.env.NODE_ENV !== 'production') { %>
+    <!-- dev error stack start -->
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col text-start">
+          <h2 class="fs-6"><strong>Message</strong>: <%= error.message %> <br /><br /></h2>
+          <% for (let [key, value] of Object.entries(error)) { %>
+          <div>
+            <strong><%= key %></strong>: <% if (typeof(value) === 'object') { %> <% for (let [keySecond, valueSecond] of Object.entries(value)) { %> <%=
+            valueSecond %> <% } %> <% } else { %> <%= value %> <% } %>
+          </div>
+          <% } %>
+          <div><strong>Long text:</strong> "<%= error %>"</div>
+          <br />
+          <div><strong>Error stack:</strong> <%= error.stack %> </div>
+        </div>
+      </div>
+    </div>
+    <!-- dev error stack end  -->
+    <% } %>
+  </div>
+  <% } %>
+</div>
+<% } %>

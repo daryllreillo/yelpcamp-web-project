@@ -1,0 +1,121 @@
+<% layout('common-layouts/boilerplate-campgrounds.ejs') %>
+<!-- background image for individual camp view/edit -->
+<%- include('partials/indiv-camp.ejs')%>
+<div class="container text-center text-light">
+  <div class="fs-1 my-1 mx-3"><%= pageTitle %> </div>
+  <div class="row mb-4 d-flex flex-column justify-content-center">
+    <div class="card bg-info-opacity-thirty mt-2 mb-5 col-10 offset-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+      <!-- cancel button -->
+      <form class="row justify-content-end" action="/campgrounds/<%= campground.id%>/view" method="GET">
+        <button
+          class="btn btn-sm col-1 offset-11 text-end p-0 my-0"
+          type="submit"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          data-bs-title="Cancel Editing"
+          id="cancel-button"
+          >✖</button
+        >
+      </form>
+      <!-- campgrounds data form -->
+      <form action="/campgrounds/<%= campground._id %>/edit" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+        <!-- camp name -->
+        <div class="input-group input-group-sm m-1 row">
+          <label for="title" class="input-group-text col-3 col-lg-3"> Camp Name: </label>
+          <input type="text" name="title" id="title" value="<%= campground.title %>" class="form-control col-3 col-lg-3" required />
+          <div class="col-5 col-lg-5 form-text text-start disabled"></div>
+          <div class="invalid-feedback text-light"> Please enter a camp name. </div>
+        </div>
+        <!-- camp location -->
+        <div class="input-group input-group-sm m-1 row">
+          <label for="location" class="input-group-text col-3 col-lg-3"> Location: </label>
+          <input type="text" name="location" id="location" value="<%= campground.location.name %>" class="form-control col-3 col-lg-3" required />
+          <div class="col-5 col-lg-5 form-text text-start disabled"></div>
+          <div class="invalid-feedback text-light"> Please enter a valid location. </div>
+        </div>
+        <!-- description field -->
+        <% let descr = ''; %>
+        <div class="input-group input-group-sm m-1 row" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Maximum length : 500 characters">
+          <label for="description" class="input-group-text col-3 col-lg-3"> Description: </label>
+          <% if (campground.description) descr = campground.description %>
+          <input type="text" name="description" id="description" value="<%= descr %>" class="form-control col-3 col-lg-3" maxlength="500" />
+        </div>
+        <!-- add images -->
+        <div class="input-group input-group-sm m-1 row">
+          <label for="images" class="input-group-text col-3 col-lg-3"> Add Images:</label>
+          <input type="file" name="images" id="images" class="form-control col-3 col-lg-3" multiple />
+          <div class="">Image size 10Mb max</div>
+        </div>
+        <!-- Save button -->
+        <div class="row justify-content-center">
+          <a>
+            <button class="btn btn-sm btn-success-opacity-eighty col-5 px-3 mx-1 my-1" type="submit"> Save </button>
+          </a>
+        </div>
+      </form>
+      <!-- Delete Campground button -->
+      <form method="POST" class="row justify-content-center" action="/campgrounds/<%= campground.id %>/delete?_method=DELETE">
+        <a>
+          <button class="btn btn-sm btn-danger-opacity-half col-5 px-1 mx-1 mb-3" data-bs-toggle="modal" data-bs-target="#campDelete" type="button">
+            Delete <br />
+            Campground
+          </button>
+        </a>
+        <!-- Delete Button Modal -->
+        <div class="modal fade text-dark" id="campDelete" tabindex="-1" aria-labelledby="campDeleteLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="campDeleteLabel">Delete Campground Data</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Are you sure?<br />
+                This will delete the campground data permanently.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="submit" class="btn btn-danger">Yes, Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- Images section -->
+      <% for (let i = 0; i < campground.images.length; i++ ) { %>
+      <strong class="mb-1"> Images: </strong>
+      <form action="/campgrounds/<%= campground._id %>/images/<%= campground.images[i]._id %>/delete?_method=DELETE" method="POST">
+        <div class="row justify-content-center">
+          <div class="col">
+            <img src="<%=campground.images[i].thumbNail %> " alt="<%= campground.images[i].name %>" class="img-thumbnail" />
+          </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+          <div class="col">
+            <% if( campground.images.length <= 1 ) { %>
+            <button
+              class="btn btn-sm btn-danger col-4 mt-1"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              data-bs-title="Cannot delete last remaining camp image!"
+              type="button"
+            >
+              Delete Image
+            </button>
+            <% } else { %>
+            <a>
+              <button class="btn btn-sm btn-danger-opacity-half col-4 mt-1" type="submit"> Delete Image </button>
+            </a>
+            <% } %>
+          </div>
+        </div>
+      </form>
+      <% } %>
+      <!-- if no images found -->
+      <% if(campground.images.length < 1 ) { %>
+      <strong class="mb-2"> No images uploaded yet </strong>
+      <% } %>
+    </div>
+  </div>
+</div>
+<script src="/js/cancel-button.js"></script>

@@ -1,0 +1,22 @@
+<% layout('common-layouts/boilerplate-campgrounds.ejs') %>
+<div hidden id="nav-page">nav-campgrounds</div>
+<link rel="stylesheet" href="/css/camp-main.css" />
+<div class="container text-center">
+  <h1 class="text-light"><%= pageTitle %></h1>
+  <div class="mt-4">
+    <p class="text-light">What would you like to do?</p>
+    <div class="row mx-3">
+      <a href="/campgrounds/all">
+        <button class="btn btn-info-opacity-half my-2 col-10 col-md-8 col-lg-6"> List: All Campgrounds </button>
+      </a>
+    </div>
+    <div class="row mx-3">
+      <a href="/campgrounds/multi">
+        <button class="btn btn-info-opacity-half mb-3 col-10 col-10 col-md-8 col-lg-6"> List: Multi-Camp Locations </button>
+      </a>
+    </div>
+    <div class="row mx-3">
+      <a href="/campgrounds/post"><button class="btn btn-success-opacity-half col-10 col-md-8 col-lg-6"> Post a Campground </button> </a>
+    </div>
+  </div>
+</div>

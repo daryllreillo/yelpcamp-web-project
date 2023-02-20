@@ -1,0 +1,75 @@
+<% layout('common-layouts/boilerplate.ejs') %>
+<div hidden id="nav-page">nav-register</div>
+<link rel="stylesheet" href="/css/camp-post.css" />
+<div class="container">
+  <div class="row d-flex flex-column justify-content-center">
+    <div class="card mt-2 col-10 offset-1 col-lg-8 offset-lg-2 bg-info-opacity-half text-light">
+      <h1 class="my-1 mx-3 text-center"><%= pageTitle %></h1>
+      <form action="/register" method="POST" class="needs-validation" novalidate>
+        <div class="input-group input-group-sm m-1 row">
+          <label for="username" class="col-form-label col-4 col-lg-4 text-end"> Username</label>
+          <div class="col-8 col-lg-8">
+            <input type="text" name="username" id="username" placeholder="my username" class="form-control" required />
+            <div class="invalid-feedback username-inv text-light"> Please enter your username ! </div>
+          </div>
+        </div>
+        <div class="input-group input-group-sm m-1 row">
+          <label for="password" class="col-form-label col-4 col-lg-4 text-end"> Password </label>
+          <div class="col-8 col-lg-8">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password"
+              class="form-control"
+              required
+              minlength="8"
+              maxlength="50"
+              pattern="(?=^.{8,50}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+            />
+            <div class="invalid-feedback text-left text-light"> Please enter a password with below requirements: </div>
+          </div>
+        </div>
+        <div class="input-group input-group-sm m-0 p-0 row">
+          <div class="col-5 col-lg-5 form-text text-start disabled p-0 m-0"></div>
+          <div class="col-7 col-lg-7 form-text text-start disabled p-0 m-0 mb-2 text-light">
+            <small class="p-0 m-0">
+              <strong>Password requirements:</strong> <br />
+              <div class="col p-0 m-0">
+                Minimum: 8 characters <br />
+                Maximum: 50 characters<br />
+                Must contain:
+              </div>
+              <div class="row">
+                <div class="col-1"></div>
+                <div class="col p-0 m-0">
+                  a number (0 to 9)<br />
+                  a special character (!@#$%^*&) <br />
+                  <!-- prettier-ignore -->
+                  both uppercase and lowercase letters (a to z  and  A to Z)<br />
+                </div>
+              </div>
+            </small>
+          </div>
+        </div>
+        <div class="input-group input-group-sm m-1 row">
+          <label for="repeat-password" class="col-form-label col-4 col-lg-4 text-end mx-0 px-0"> Repeat password </label>
+          <div class="col-8 col-lg-8">
+            <input type="password" id="repeat-password" placeholder="password" class="form-control" required pattern="" " />
+            <div class="invalid-feedback text-light"> Please repeat your password. </div>
+          </div>
+        </div>
+        <div class="input-group input-group-sm m-1 row">
+          <label for="email" class="col-form-label col-4 col-lg-4 text-end"> Email </label>
+          <div class="col-8 col-lg-8">
+            <input type="email" name="email" id="email" placeholder="example@email.com" class="form-control" required pattern=".+@.+\..+" />
+            <div class="invalid-feedback text-light"> Please enter a valid email ! </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <button class="btn btn-sm btn-success col-3 px-3 mx-1 mb-1 text-light" type="submit"> Register </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

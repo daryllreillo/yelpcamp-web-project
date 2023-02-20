@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=firefox" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title><%= pageTitle %> - Yelp Camp </title>
+  </head>
+  <body class="bg-dark vh-100 d-flex flex-column">
+    <%- include('partials/common-navbar.ejs') %>
+    <main class="text-dark px-2 text-center">
+      <%- include('./partials/flash-message.ejs') %> <%- body %>
+      <script src="/js/bootstrap.bundle.min.js"></script>
+      <script src="/js/script.js"></script>
+    </main>
+    <%- include('partials/common-footer') %>
+  </body>
+</html>

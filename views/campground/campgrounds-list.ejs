@@ -1,0 +1,41 @@
+<% layout('common-layouts/boilerplate-campgrounds.ejs') %>
+<div hidden id="nav-page">nav-campgrounds-list</div>
+<link rel="stylesheet" href="/css/camp-multi-view.css" />
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+<div hidden id="campListJSON">
+  <%= JSON.stringify( campgroundsList.map( camp => { return { type: 'Feature', properties: camp.properties, geometry: camp.geometry, _id: camp.id } } ) ); %>
+</div>
+<div class="d-flex flex-column text-center mb-3">
+  <h1 class="my-1 mx-3 text-light"><%= pageTitle %></h1>
+  <div class="card col-10 offset-1 col-lg-8 offset-lg-2 text-center d-flex align-items-center my-1 py-2 px-2 bg-info-opacity-half">
+    <div id="mapbox" class="mb-2 mapbox-all-camps"></div>
+  </div>
+  <div>
+    <h2 class="h4 text-light">Campgrounds: <%= campgroundsList.length %> </h2>
+    <ul class="d-flex flex-wrap justify-content-center m-0 p-0">
+      <% for (let i = 0; i < campgroundsList.length; i++ ) { %>
+      <!-- campground info card -->
+      <a
+        href="/campgrounds/<%= campgroundsList[i]?._id %>/view"
+        class="card px-3 py-2 mb-2 mx-1 d-flex flex-column align-items-center justify-content-center bg-info-opacity-thirty campground-card"
+      >
+        <li>
+          <figure class="figure m-0">
+            <!-- prettier-ignore -->
+            <% let thumbNail = (campgroundsList[i]?.images.length > 0) ? campgroundsList[i]?.images[0].thumbNail : 'https://res.cloudinary.com/dzfdgxlk1/image/upload/c_scale,w_361/c_scale,l_default_image_gjnm3g,o_61,w_200/v1674795880/cld-sample-2.jpg'   %>
+            <img src="<%= thumbNail %>" class="figure-img img-fluid rounded" alt="camp image" />
+            <figcaption class="mt-0">
+              <%= campgroundsList[i]?.title %>
+              <br />
+              <%= campgroundsList[i]?.location.name%>
+            </figcaption>
+          </figure>
+          <br />
+        </li>
+      </a>
+      <% } %>
+    </ul>
+  </div>
+</div>
+<script src="/js/clusterMapMapbox.js"></script>

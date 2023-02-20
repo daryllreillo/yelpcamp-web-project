@@ -1,0 +1,37 @@
+<!-- title -->
+<div class="input-group input-group-sm m-1 row">
+  <label for="title" class="input-group-text col-3 col-lg-3">Camp:</label>
+  <input type="text" name="title" id="title" placeholder="Camp Name" class="form-control col-3 col-lg-3" required minlength="1" maxlength="90" />
+  <div class="invalid-feedback"> Enter a camp name. 90 max characters </div>
+</div>
+<!-- Location -->
+<div class="input-group input-group-sm m-1 row">
+  <label for="location" class="input-group-text col-3 col-lg-3">Location:</label>
+  <input type="text" name="location" id="location" placeholder="Location Name" class="form-control col-3 col-lg-3" required />
+  <div class="invalid-feedback"> Enter a valid location. </div>
+</div>
+<!-- description -->
+<div class="input-group input-group-sm m-1 row">
+  <label for="description" class="input-group-text col-3 col-lg-3"> Description: </label>
+  <input type="text" name="description" id="description" placeholder="(0 to 500 characters)" class="form-control col-3 col-lg-3" maxlength="500" />
+</div>
+<!-- ImageLink -->
+<!-- <div class="input-group input-group-sm m-1 row">
+  <label for="imageLink" class="input-group-text col-3 col-lg-3">Image Link:</label>
+  <input
+    type="text"
+    name="imageLink"
+    id="imageLink"
+    placeholder="https://picsum.photos/200/300"
+    class="form-control col-3 col-lg-3"
+    pattern="https?:.+"
+    required
+  />
+  <div class="invalid-feedback"> Link a camp image. </div>
+</div> -->
+<!-- Image File Upload -->
+<div class="input-group input-group-sm m-1 row">
+  <label for="images" class="input-group-text col-3 col-lg-3">Upload file:</label>
+  <input type="file" name="images" id="images" class="form-control col-3 col-lg-3" multiple required />
+  <div class="invalid-feedback"> Please upload an image file. </div>
+</div>

@@ -1,0 +1,113 @@
+<% layout('common-layouts/boilerplate-campgrounds.ejs') %>
+<!-- background image for individual camp view/edit -->
+<!-- <%- include('../campground/partials/indiv-camp.ejs')%> -->
+<link rel="stylesheet" href="/css/starability.css" />
+<div class="container text-center text-light">
+  <h1 class="my-1"><%= pageTitle %> </h1>
+  <div class="row">
+    <div class="card col-10 offset-1 col-lg-8 offset-lg-2 bg-info-opacity-half mt-2 py-0">
+      <form class="row justify-content-end" action="/campgrounds/<%= campReview.campground._id %>/view" method="GET">
+        <button class="btn btn-sm col-1 offset-11 text-end p-0 my-0" type="submit">✖</button>
+      </form>
+      <form action="/campReviews/<%= campReview.id %>/edit" method="POST" class="needs-validation was-validated" novalidate id="validation-form">
+        <span class="lead">Rating:</span>
+        <div class="input-group input-group-sm m-1 pe-3 mb-0 p-0 d-flex justify-content-center">
+          <fieldset class="starability-slot" id="star-styler">
+            <input type="radio" id="first-rate1" name="rating" value="1" class="star-style-variation-input" <%= (campReview.rating == '1') ? 'checked' : '' %>/>
+            <label for="first-rate1" title="Terrible" class="star-style-variation-label">1 star</label>
+            <input type="radio" id="first-rate2" name="rating" value="2" class="star-style-variation-input" <%= (campReview.rating == '2') ? 'checked' : '' %>/>
+            <label for="first-rate2" title="Not good" class="star-style-variation-label">2 stars</label>
+            <input type="radio" id="first-rate3" name="rating" value="3" class="star-style-variation-input" <%= (campReview.rating == '3') ? 'checked' : '' %>/>
+            <label for="first-rate3" title="Average" class="star-style-variation-label">3 stars</label>
+            <input type="radio" id="first-rate4" name="rating" value="4" class="star-style-variation-input" <%= (campReview.rating == '4') ? 'checked' : '' %>/>
+            <label for="first-rate4" title="Very good" class="star-style-variation-label">4 stars</label>
+            <input type="radio" id="first-rate5" name="rating" value="5" class="star-style-variation-input" <%= (campReview.rating == '5') ? 'checked' : '' %>/>
+            <label for="first-rate5" title="Amazing" class="star-style-variation-label">5 stars</label>
+          </fieldset>
+          <div class="valid-feedback text-light">5 stars = Amazing <br />1 star = Terrible</div>
+        </div>
+        <!-- message field -->
+        <!-- <div class="input-group input-group-sm m-1 row" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Max characters: 500"> -->
+        <div class="row mx-2">
+          <label for="message " class="form-label col-6 col-lg-5 text-start"> Your message: </label>
+          <textarea
+            type="text"
+            name="message"
+            id="message"
+            value="<%= campReview.message %>"
+            class="form-control col-3 col-lg-3"
+            maxlength="500"
+            minlength="15"
+            required
+            rows="5"
+          >
+<%= campReview.message %></textarea
+          >
+          <div class="invalid-feedback">Minimum 15 characters</div>
+          <div class="valid-feedback" id="chars-left"></div>
+        </div>
+        <!-- update button -->
+        <div class="row justify-content-center">
+          <button class="btn btn-sm btn-success col-3 px-3 mx-1 mb-1 text-light" type="submit"> Update Review </button>
+        </div>
+      </form>
+      <!-- delete button -->
+      <form class="row justify-content-center" action="/campReviews/<%= campReview.id %>/delete?_method=DELETE" method="POST">
+        <button class="btn btn-sm btn-danger col-3 px-3 mx-1 mb-3 text-light" type="submit"> Delete Review </button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container text-light">
+  <!-- Reference campground view -->
+  <% let descr = '(not yet provided by original poster)'; %>
+  <div class="row">
+    <div class="card col-10 offset-1 col-lg-8 offset-lg-2 text-center bg-info-opacity-half my-2 py-2">
+      <h1 class="h3 my-1 mx-3"> Review for:</h1>
+      <h1 class=""> <a href="/campgrounds/<%= campReview.campground.id %>/view">Campground: <%= campReview.campground.title %> </a></h1>
+
+      <!-- <figure class="figure">
+        <img src="<%= campReview.campground.images[0].url %>" class="img-thumbnail rounded camp-img" alt="Camp Image: <%= pageTitle %>" />
+        <figcaption class="figure-caption"><%= campReview.campground.title %></figcaption>
+      </figure> -->
+
+      <div id="campgroundImageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% for ( let i = 0; i < campReview.campground.images.length; i++) { %>
+          <div class="carousel-item <%= i==0? 'active': ''%>">
+            <img src="<%= campReview.campground.images[i].carousel %>" class="img-thumbnail rounded camp-img" alt="..." />
+          </div>
+          <% } %>
+        </div>
+        <% if (campReview.campground.images.length > 1) { %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#campgroundImageCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#campgroundImageCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <% } %>
+      </div>
+      <div class="row text-start mb-1 px-3 mx-3">
+        <div class="col-12">
+          <span class="fs-5">Location: </span><br />
+          <span class="fs-6 px-3">
+            <a href="/campgrounds/<%= location.name %>/location"> <%= location.name %> </a>
+          </span>
+        </div>
+      </div>
+      <div class="row px-3 mx-3">
+        <% if (campReview.campground.description) descr = campReview.campground.description; %>
+        <div class="col-12 text-start">
+          <span class="fs-5">Description:</span><br />
+          <span class="fs-6 mx-3"><%= descr %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<script src="/js/star-script.js"></script>
+<script src="/js/charsLeft-script.js"></script>

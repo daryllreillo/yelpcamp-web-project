@@ -1,0 +1,20 @@
+<% layout('common-layouts/boilerplate-campgrounds.ejs') %>
+<div hidden id="nav-page">nav-campgrounds-list</div>
+<link rel="stylesheet" href="/css/camp-multi-view.css" />
+<div class="d-flex flex-column text-center text-light mb-3">
+  <h1 class="my-1 mx-3"><%= pageTitle %></h1>
+  <% if (multiList.length > 0) { %>
+  <h2 class="h4">Locations: <%= multiList.length %> (Campgrounds Total: <%= multiList.reduce(((a, b) => {return {count: a.count + b.count }} )).count %>)</h2>
+  <ul class="d-flex flex-column align-items-center">
+    <% for (let i = 0; i < multiList.length; i++ ) { %>
+    <li class="card py-2 mb-2 bg-info-opacity-twentyone location-card">
+      <a href="/campgrounds/<%= multiList[i].location %>/location"> <%= multiList[i].location %> (<%= multiList[i].count %>) </a>
+    </li>
+    <% } %> <% } else { %>
+    <h2 class="h4">Locations: <%= multiList.length %> (Campgrounds Total: 0)</h2>
+    <ul class="camp-list d-flex flex-column align-items-center">
+      <li class="text-center"> </li>
+      <% } %>
+    </ul>
+  </ul>
+</div>

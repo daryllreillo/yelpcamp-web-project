@@ -1,0 +1,274 @@
+.camp-list {
+  width: 100%;
+  height: 79vh;
+}
+
+p {
+  text-indent: 1.5rem;
+}
+
+/* scrollbar CSS */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* end of scrollbar CSS */
+
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: black;
+}
+.camp-img {
+  max-height: 60vh;
+}
+.div-body {
+  height: 100vh;
+}
+
+.main-body {
+  height: 90vh;
+}
+
+/* bg dark custom */
+.bg-dark-opacity-ninetyfour {
+  background-color: rgba(33, 37, 41, 0.94);
+}
+.bg-dark-opacity-ninety {
+  background-color: rgba(33, 37, 41, 0.9);
+}
+.bg-dark-opacity-eighty {
+  background-color: rgba(33, 37, 41, 0.8);
+}
+.bg-dark-opacity-seventy {
+  background-color: rgba(33, 37, 41, 0.7);
+}
+.bg-dark-opacity-half {
+  background-color: rgba(33, 37, 41, 0.5);
+}
+.bg-dark-opacity-thirty {
+  background-color: rgba(33, 37, 41, 0.3);
+}
+.bg-dark-opacity-twentyone {
+  background-color: rgba(33, 37, 41, 0.21);
+}
+.bg-dark-opacity-nineteen {
+  background-color: rgba(33, 37, 41, 0.19);
+}
+.bg-dark-opacity-fifteen {
+  background-color: rgba(33, 37, 41, 0.15);
+}
+
+/* bg info custom */
+.bg-info-opacity-ninetyfour {
+  background-color: rgba(13, 202, 240, 0.94);
+}
+.bg-info-opacity-seventy {
+  background-color: rgba(13, 202, 240, 0.7);
+}
+.bg-info-opacity-half {
+  background-color: rgba(13, 202, 240, 0.5);
+}
+.bg-info-opacity-thirty {
+  background-color: rgba(13, 202, 240, 0.3);
+}
+.bg-info-opacity-twentyone {
+  background-color: rgba(13, 202, 240, 0.21);
+}
+.bg-info-opacity-nineteen {
+  background-color: rgba(13, 202, 240, 0.19);
+}
+.bg-info-opacity-fifteen {
+  background-color: rgba(13, 202, 240, 0.15);
+}
+
+/* bg success custom */
+.bg-success-opacity-eighty {
+  background-color: rgba(25, 135, 84, 0.8);
+}
+.bg-success-opacity-seventy {
+  background-color: rgba(25, 135, 84, 0.7);
+}
+.bg-success-opacity-half {
+  background-color: rgba(25, 135, 84, 0.5);
+}
+.bg-success-opacity-quarter {
+  background-color: rgba(25, 135, 84, 0.25);
+}
+
+/* btn info custom */
+.btn-info-opacity-seventy {
+  background-color: rgba(13, 202, 240, 0.7);
+  color: white;
+}
+.btn-info-opacity-seventy:hover {
+  background-color: rgba(13, 202, 240, 0.91);
+  color: black;
+}
+.btn-info-opacity-half {
+  background-color: rgba(13, 202, 240, 0.7);
+  color: white;
+}
+.btn-info-opacity-half:hover {
+  background-color: rgba(13, 202, 240, 0.91);
+  color: black;
+}
+
+/* btn success custom */
+.btn-success-opacity-half {
+  background-color: rgba(25, 135, 84, 0.5);
+  color: white;
+}
+.btn-success-opacity-half:hover {
+  background-color: rgba(25, 135, 84, 0.71);
+  color: black;
+}
+.btn-success-opacity-eighty {
+  background-color: rgba(25, 135, 84, 0.8);
+  color: white;
+}
+.btn-success-opacity-eighty:hover {
+  background-color: rgba(25, 135, 84, 1);
+  color: black;
+}
+
+/* btn primary custom */
+.btn-primary-opacity-seventy {
+  background-color: rgba(13, 110, 253, 0.7);
+  color: white;
+}
+.btn-primary-opacity-seventy:hover {
+  background-color: rgba(13, 110, 253, 0.93);
+  color: black;
+}
+.btn-primary-opacity-half {
+  background-color: rgba(13, 110, 253, 0.7);
+  color: white;
+}
+.btn-primary-opacity-half:hover {
+  background-color: rgba(13, 110, 253, 0.93);
+  color: black;
+}
+
+/* btn warning custom */
+.btn-warning-opacity-half {
+  background-color: rgba(255, 193, 7, 0.75);
+  color: white;
+}
+.btn-warning-opacity-half:hover {
+  background-color: rgba(255, 193, 7, 1);
+  color: black;
+}
+.btn-danger-opacity-half {
+  background-color: rgba(220, 53, 69, 0.85);
+  color: white;
+}
+.btn-danger-opacity-half:hover {
+  background-color: rgba(220, 53, 69, 1);
+  color: black;
+}
+
+.mapbox-all-camps {
+  width: 93%;
+  height: 40vh;
+}
+
+.campground-card {
+  background-color: rgba(13, 202, 240, 0.3);
+  width: 18rem;
+  font-size: 0.875em;
+  color: white;
+}
+.campground-card:hover {
+  background-color: rgba(13, 202, 240, 0.5);
+  color: black;
+}
+
+.location-card {
+  width: 21rem;
+  padding: 0px 20px;
+}
+
+/* alert button  */
+/* .alert .btn-close {
+background-color: ;
+} */
+
+/* Tooltip container */
+.cust_tooltip,
+.cust_tooltip2,
+.cust_tooltip3 {
+  position: relative;
+}
+
+/* Tooltip text */
+.cust_tooltip .tooltiptext,
+.cust_tooltip2 .tooltiptext,
+.cust_tooltip3 .tooltiptext {
+  visibility: hidden;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 20%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.cust_tooltip .tooltiptext::after,
+.cust_tooltip2 .tooltiptext::after,
+.cust_tooltip3 .tooltiptext::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #007bff transparent transparent transparent;
+}
+.cust_tooltip2 .tooltiptext::after {
+  left: 75%;
+}
+.cust_tooltip3 .tooltiptext::after {
+  left: 65%;
+}
+/* Show the tooltip text when you mouse over the tooltip container */
+.cust_tooltip:hover .tooltiptext,
+.cust_tooltip2:hover .tooltiptext,
+.cust_tooltip3:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.carousel-item .img {
+  height: 480px;
+}

@@ -1,0 +1,29 @@
+<% layout('common-layouts/boilerplate.ejs') %>
+<div hidden id="nav-page">nav-login</div>
+<link rel="stylesheet" href="/css/camp-post.css" />
+<div class="container">
+  <div class="row d-flex flex-column justify-content-center">
+    <div class="card mt-2 col-10 offset-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 pb-2 bg-info-opacity-half">
+      <h1 class="my-1 mx-3 text-center text-light"><%= pageTitle %></h1>
+      <form action="/login" method="POST" class="needs-validation" novalidate>
+        <div class="input-group input-group-sm m-1 row">
+          <label for="username" class="col-form-label col-5 col-lg-5 text-end text-light"> Username</label>
+          <div class="col-7 col-lg-7">
+            <input type="text" name="username" id="username" placeholder="username" class="form-control" required />
+            <span class="invalid-feedback"> Please enter your username </span>
+          </div>
+        </div>
+        <div class="input-group input-group-sm m-1 row">
+          <label for="password" class="col-form-label col-5 col-lg-5 text-end text-light"> Password</label>
+          <div class="col-7 col-lg-7">
+            <input type="password" name="password" id="password" placeholder="password" class="form-control" required />
+            <span class="invalid-feedback"> Please enter your password </span>
+          </div>
+        </div>
+        <div class="row justify-content-center pt-1">
+          <button class="btn btn-sm btn-success col-3 px-3 mx-1 mb-1 text-light" type="submit"> Login </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

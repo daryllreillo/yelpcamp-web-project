@@ -1,0 +1,31 @@
+<% layout('common-layouts/boilerplate-campgrounds.ejs') %>
+<div hidden id="nav-page">nav-campgrounds-post</div>
+<link rel="stylesheet" href="/css/camp-post.css" />
+<div class="container text-center text-light">
+  <h1 class="my-1 mx-3"><%= pageTitle %> </h1>
+  <div class="row d-flex flex-column justify-content-center">
+    <div class="card bg-info-opacity-thirty mt-2 col-10 offset-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+      <form class="row justify-content-end" action="/campgrounds/" method="GET">
+        <button
+          id="cancel-button"
+          class="btn btn-sm col-1 offset-11 text-end p-0 my-0"
+          type="submit"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          data-bs-title="Cancel"
+          >❌</button
+        >
+      </form>
+      <form action="/campgrounds/post" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+        <%- include('partials/main-post.ejs')%>
+        <div class="row justify-content-center mb-1 mt-1">
+          <button class="btn btn-sm btn-success-opacity-eighty px-3 col-3 col-lg-3 mx-1" type="submit">Post</button>
+        </div>
+        <div class="row justify-content-center mb-1 mb-3">
+          <button class="btn btn-sm btn-warning-opacity-half px-3 col-3 col-lg-3 mx-1" type="reset">Reset Form</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="/js/cancel-button.js"></script>
