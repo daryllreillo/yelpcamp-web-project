@@ -1,4 +1,7 @@
 'use strict';
+// environment variables initiate
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 // imports
 import express from 'express';
