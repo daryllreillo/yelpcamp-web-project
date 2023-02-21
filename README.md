@@ -7,12 +7,12 @@ The project contains my current learnings on web development using HTML, CSS, Ja
 This web app was deployed using:
 
 - Heroku app container for Node.js
-- Mongo Atlas cloud database
+- MongoDB Atlas cloud database
 - Github for open version control
 - Cloudinary API for stock images
 - Mapbox for geocoding and map-view
 - Express js for web back-end
-- EJS for web front-end
+- EJS for web front-end UI
 - various Node.js apps for Authentication, Security, Session and Cookies control
 
-I will be using React.js for the project UI soon!
+I will be using React.js for the project front-end UI soon!
