@@ -38,7 +38,7 @@ const campReviewSchema = Joi.object({
 const requireLogin = (req, res, next) => {
   if (!req.isAuthenticated()) {
     req.session.returnTo = req.originalUrl;
-    req.flash('warning', 'You must be logged in.');
+    req.flash('warning', 'Please log in to do that');
     res.redirect('/login');
   } else {
     next();
