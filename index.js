@@ -1,5 +1,5 @@
 'use strict';
-// environment variables initiate
+// initiate environment variables
 import * as dotenv from 'dotenv';
 dotenv.config();
 
